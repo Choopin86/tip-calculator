@@ -5,7 +5,7 @@ import TipCalculator from "./components/TipCalculator";
 const tipButtons = ["5%", "10%", "15%", "25%", "50%", "Custom"];
 
 const App = () => {
-  const [tip, setTip] = useState("0");
+  const [tip, setTip] = useState("5%");
   const [bill, setBill] = useState("");
   const [people, setPeople] = useState("");
   const [tipAmount, setTipAmount] = useState("0");
@@ -16,9 +16,9 @@ const App = () => {
   };
 
   const handleTipButtons = (button) => {
-    if (tipButtons.includes(button)) {
-      setTip(button);
-    }
+    console.log(button);
+    setTip(button);
+    console.log(tip);
   };
 
   const handlePeople = (e) => {
