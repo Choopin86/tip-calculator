@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import EnterData from "./components/EnterData";
 import TipCalculator from "./components/TipCalculator";
 
 const tipButtons = ["5%", "10%", "15%", "25%", "50%", "Custom"];
 
 const App = () => {
-  const [tip, setTip] = useState("5%");
-  const [bill, setBill] = useState("");
-  const [people, setPeople] = useState("");
+  const [tip, setTip] = useState("0%");
+  const [bill, setBill] = useState("0");
+  const [people, setPeople] = useState("1");
   const [tipAmount, setTipAmount] = useState("0");
   const [total, setTotal] = useState("0");
 
@@ -16,24 +16,28 @@ const App = () => {
   };
 
   const handleTipButtons = (button) => {
-    console.log(button);
-    setTip(button);
-    console.log(tip);
+    if (tipButtons.includes(button)) {
+      setTip(button);
+      console.log(button);
+      console.log(tip);
+    }
   };
 
   const handlePeople = (e) => {
     setPeople(e.target.value);
   };
 
-  const handleCalculations = () => {
-    const calculatedTipAmount =
-      (parseFloat(bill) * (parseInt(tip) / 100)) / parseInt(people);
-    setTipAmount(calculatedTipAmount.toFixed(2));
+  useEffect(() => {
+    if (bill && people && tip) {
+      const calculatedTipAmount =
+        (parseFloat(bill) * (parseInt(tip) / 100)) / parseInt(people);
+      setTipAmount(calculatedTipAmount.toFixed(2));
 
-    const calculatedTotal =
-      parseFloat(bill) / parseInt(people) + calculatedTipAmount;
-    setTotal(calculatedTotal.toFixed(2));
-  };
+      const calculatedTotal =
+        parseFloat(bill) / parseInt(people) + calculatedTipAmount;
+      setTotal(calculatedTotal.toFixed(2));
+    }
+  }, [bill, people, tip]);
 
   const handleReset = () => {
     setTipAmount("0");
@@ -64,7 +68,6 @@ const App = () => {
           </div>
           <div className="my-3 ">
             <TipCalculator
-              onCalculate={handleCalculations}
               onReset={handleReset}
               tipAmount={tipAmount}
               total={total}

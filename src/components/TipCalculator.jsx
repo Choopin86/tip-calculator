@@ -22,12 +22,6 @@ const TipCalculator = ({ onCalculate, onReset, tipAmount, total }) => {
       </div>
       <div className="flex flex-col gap-3 mt-10">
         <button
-          onClick={onCalculate}
-          className="bg-teal-400 w-full py-2 rounded-md text-teal-900 font-bold tracking-wide hover:bg-teal-500 transition-colors"
-        >
-          CALCULATE
-        </button>
-        <button
           onClick={onReset}
           className="bg-teal-400 w-full py-2 rounded-md text-teal-900 font-bold tracking-wide hover:bg-teal-500 transition-colors"
         >

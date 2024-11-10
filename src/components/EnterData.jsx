@@ -30,22 +30,19 @@ const EnterData = ({
         {/*Select tip % section*/}
         <div className="mt-5 text-slate-500 text-[0.8rem]">
           <h3 className="my-1">Select tip %</h3>
-          <div className="grid grid-cols-2 gap-y-1 gap-x-[11px]">
+          <div className="grid grid-cols-2 gap-2">
             {tipButtons.map((button, index) => (
               <button
                 key={index}
-                onClick={() => onButtonPress(button)}
-                className={`p-2 mb-2 text-xl rounded-[5px] w-24 cursor-pointer 
-                  ${
-                    button === "Custom"
-                      ? "bg-slate-200 text-slate-800"
-                      : "bg-teal-900 text-slate-200"
-                  }
-                  ${
-                    tip === button
-                      ? "border-teal-500 bg-teal-500 text-slate-200"
-                      : "hover:bg-teal-500"
-                  }`}
+                onClick={() => {
+                  onButtonPress(button);
+                }}
+                className={`p-2 text-xl rounded-md cursor-pointer  hover:bg-teal-500 focus:bg-teal-500
+                ${
+                  button === "Custom"
+                    ? "bg-slate-200 text-slate-800"
+                    : "bg-teal-900 text-slate-200"
+                }`}
               >
                 {button}
               </button>
