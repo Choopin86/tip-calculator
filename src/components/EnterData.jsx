@@ -12,7 +12,7 @@ const EnterData = ({
 }) => {
   return (
     <>
-      <div className="mr-6 w-60">
+      <div className="mr-6 w-[250px]">
         {/*Bill section*/}
         <div className="my-3 text-slate-500">
           <h3 className="text-[0.8rem]">Bill</h3>
@@ -23,8 +23,8 @@ const EnterData = ({
               type="text"
               name="bill"
               id="bill"
-              value={bill}
               onChange={onBillChange}
+              placeholder="0"
             />
           </div>
         </div>
