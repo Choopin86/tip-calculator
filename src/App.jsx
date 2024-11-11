@@ -10,17 +10,18 @@ const App = () => {
   const [people, setPeople] = useState("1");
   const [tipAmount, setTipAmount] = useState("0");
   const [total, setTotal] = useState("0");
+  const [customTip, setCustomTip] = useState(false);
 
   const handleBill = (e) => {
     setBill(e.target.value);
   };
 
   const handleTipButtons = (button) => {
-    if (tipButtons.includes(button)) {
-      setTip(button);
-      console.log(button);
-      console.log(tip);
-    }
+    button === "Custom" ? setCustomTip(true) : setTip(button);
+  };
+
+  const handleCustomTip = (e) => {
+    setTip(e.target.value);
   };
 
   const handlePeople = (e) => {
@@ -45,6 +46,7 @@ const App = () => {
     setBill("");
     setTip("0");
     setPeople("");
+    setCustomTip(false);
   };
 
   return (
@@ -61,9 +63,10 @@ const App = () => {
               onButtonPress={handleTipButtons}
               onBillChange={handleBill}
               onPeopleChange={handlePeople}
-              tip={tip}
+              onCustomTip={handleCustomTip}
               bill={bill}
               people={people}
+              customTip={customTip}
             />
           </div>
           <div className="my-3 ">

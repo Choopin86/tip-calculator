@@ -5,13 +5,14 @@ const EnterData = ({
   onButtonPress,
   onBillChange,
   onPeopleChange,
-  tip,
+  onCustomTip,
   bill,
   people,
+  customTip,
 }) => {
   return (
     <>
-      <div className="mr-6">
+      <div className="mr-6 w-60">
         {/*Bill section*/}
         <div className="my-3 text-slate-500">
           <h3 className="text-[0.8rem]">Bill</h3>
@@ -28,7 +29,7 @@ const EnterData = ({
           </div>
         </div>
         {/*Select tip % section*/}
-        <div className="mt-5 text-slate-500 text-[0.8rem]">
+        <div className="text-slate-500 text-[0.8rem]">
           <h3 className="my-1">Select tip %</h3>
           <div className="grid grid-cols-2 gap-2">
             {tipButtons.map((button, index) => (
@@ -47,6 +48,13 @@ const EnterData = ({
                 {button}
               </button>
             ))}
+            {customTip === true ? (
+              <input
+                className="bg-slate-200 rounded-md h-10 w-full pl-2 col-span-2"
+                placeholder="Enter custom tip %"
+                onChange={onCustomTip}
+              />
+            ) : null}
           </div>
         </div>
         {/*Number of people section*/}
@@ -55,7 +63,7 @@ const EnterData = ({
           <div className="relative flex items-center">
             <span className="absolute left-3 text-slate-400">👤</span>
             <input
-              className="bg-slate-200 rounded-md h-10 w-full pl-8 pr-2"
+              className="bg-slate-200 rounded-md h-10 w-full pl-10 pr-2"
               type="text"
               name="people"
               id="people"

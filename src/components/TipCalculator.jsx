@@ -2,7 +2,7 @@ import React from "react";
 
 const TipCalculator = ({ onCalculate, onReset, tipAmount, total }) => {
   return (
-    <div className="bg-teal-900 shadow-xl flex flex-col justify-around p-6 rounded-lg text-slate-100 w-[250px] h-full">
+    <div className="bg-teal-900 shadow-xl flex flex-col justify-around p-6 rounded-lg text-slate-100 w-60 h-full">
       {/*Tip Amount section */}
       <div className="flex justify-between items-center">
         <div>
