@@ -65,7 +65,7 @@ const App = () => {
           <h1>tter</h1>
         </div>
 
-        <div className=" bg-white drop-shadow-2xl rounded-3xl flex flex-col px-5 py-2 md:flex-row gap-5">
+        <div className=" bg-white drop-shadow-2xl rounded-3xl flex flex-col gap-1 px-5 py-2 md:flex-row md:gap-5">
           <div className="w-full">
             <EnterData
               tipButtons={tipButtons}
