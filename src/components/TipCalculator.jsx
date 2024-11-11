@@ -38,7 +38,7 @@ const TipCalculator = ({
         </div>
         <p className="text-3xl font-bold text-teal-400">${total}</p>
       </div>
-      <div className="flex flex-col gap-3 mt-10">
+      <div className="flex flex-col gap-3 mt-6">
         <button
           onClick={onReset}
           className="bg-teal-400 w-full py-2 rounded-md text-teal-900 font-bold tracking-wide hover:bg-teal-500 transition-colors"

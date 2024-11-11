@@ -12,7 +12,7 @@ const EnterData = ({
 }) => {
   return (
     <>
-      <div className="mr-6 w-[250px]">
+      <div className="w-[250px]">
         {/*Bill section*/}
         <div className="my-3 text-slate-500">
           <h3 className="text-[0.8rem]">Bill</h3>

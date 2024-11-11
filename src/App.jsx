@@ -36,13 +36,13 @@ const App = () => {
         (parseFloat(bill) * (parseInt(tip) / 100)) / parseInt(people);
       setTipAmountPerson(calculatedTipAmount.toFixed(2));
       const calculatedTipTotal = parseFloat(bill) * (parseInt(tip) / 100);
-      setTotalTip(calculatedTipTotal);
+      setTotalTip(calculatedTipTotal.toFixed(2));
 
       const calculatedTotalPerson =
         parseFloat(bill) / parseInt(people) + calculatedTipAmount;
       setTotalPerson(calculatedTotalPerson.toFixed(2));
       const calculatedTotal = parseFloat(bill) + calculatedTipTotal;
-      setTotal(calculatedTotal);
+      setTotal(calculatedTotal.toFixed(2));
     }
   }, [bill, people, tip]);
 
@@ -59,13 +59,14 @@ const App = () => {
 
   return (
     <>
-      <div className="bg-cyan-100 h-screen flex flex-col items-center justify-center">
+      <div className="bg-cyan-100 min-h-screen flex flex-col items-center justify-center">
         <div className="mb-10 text-xl tracking-widest text-teal-700">
           <h1>Spli</h1>
           <h1>tter</h1>
         </div>
-        <div className=" bg-white drop-shadow-2xl rounded-[25px] flex px-6 py-2.5">
-          <div>
+
+        <div className=" bg-white drop-shadow-2xl rounded-3xl flex flex-col px-5 py-2 md:flex-row gap-5">
+          <div className="w-full">
             <EnterData
               tipButtons={tipButtons}
               onButtonPress={handleTipButtons}
@@ -77,7 +78,8 @@ const App = () => {
               customTip={customTip}
             />
           </div>
-          <div className="my-3 ">
+
+          <div className="my-3">
             <TipCalculator
               onReset={handleReset}
               tipAmountPerson={tipAmountPerson}
